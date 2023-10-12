@@ -71,7 +71,13 @@ int Stack :: isEmpty(){
         } else if (exp[i] == ')'|| exp[i]=='}' || exp[i]==']'){
             if (stk.isEmpty()){
                 return false;
-            } else {
+            }  else if( str[i] == ')' && s.top() != '('){
+                    return false;
+                }else if( str[i] == '}' && s.top() != '{'){
+                    return false;
+                }else if( str[i] == ']' && s.top() != '['){
+                    return false
+		    }else {
                 stk.pop();
             }
         }
