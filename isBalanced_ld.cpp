@@ -109,7 +109,13 @@ int isBalanced(char* exp){
         } else if (exp[i] == ')'){
             if (stk.isEmpty()){
                 return false;
-            } else {
+            }  else if( str[i] == ')' && s.top() != '('){
+                    return false;
+                }else if( str[i] == '}' && s.top() != '{'){
+                    return false;
+                }else if( str[i] == ']' && s.top() != '['){
+                    return false;
+                   } else {
                 stk.pop();
             }
         }
